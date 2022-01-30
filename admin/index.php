@@ -9,7 +9,7 @@
   $query = "SELECT * FROM propiedades";
 
 
-  // Consultar BD
+  // Consultar BD mysqli_query() le pasamos la coneccion
   $resultadoConsulta = mysqli_query($db, $query);
   
   // Muestra mensaje condicional
@@ -24,8 +24,11 @@
       <h1>Administrador de Bienes Raices</h1>
 
       <?php if ($resultado == 1): ?>
-        <p class="alerta exito">Anuncio creado correctamente</p>
+        <p class="alerta exito">Anuncio Creado Correctamente</p>
+      <?php elseif($resultado == 2): ?>
+        <p class="alerta exito">Anuncio Actualozido correctamente</p>
       <?php endif; ?>
+
 
 
       <a href="/admin/propiedades/crear.php" class="boton boton-verde">Nueva Propiedad</a>
@@ -48,11 +51,11 @@
           <tr>
               <td><?php echo $propiedad['id']; ?></td>
               <td><?php echo $propiedad['titulo']; ?></td>
-              <td><img src="/imagenes/<td><?php echo $propiedad['imagen']; ?></td>" class="imagen-tabla" ></td>
+              <td><img src="/imagenes/<?php echo $propiedad['imagen']; ?>" class="imagen-tabla" ></td>
               <td>$<?php echo $propiedad['precio']; ?></td>
               <td>
                 <a href="#" class="boton-rojo-block">Eliminar</a>
-                <a href="#" class="boton-amarillo-block">Actualizar</a>
+                <a href="propiedades/actualizar.php?id=<?php  echo $propiedad['id'];?>" class="boton-amarillo-block">Actualizar</a>
               </td>
             </tr>
             <?php endwhile;?>
