@@ -1,4 +1,4 @@
-<?php require 'includes/funciones.php';
+<?php require 'includes/app.php';
 incluirTemplate('header');?>
 
     <section class="contenedor seccion">
