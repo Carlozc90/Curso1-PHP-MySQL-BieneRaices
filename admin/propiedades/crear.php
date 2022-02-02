@@ -3,17 +3,14 @@
   require '../../includes/app.php';   
 
   use App\Propiedad;
+  use App\Vendedor;
 
 // import the Intervention Image Manager Class
   use Intervention\Image\ImageManagerStatic as Image;
 
-  // Base de datos
-  $db = conectarDB();
   $propiedad = new Propiedad;
-
-  // Consultar para obtener los vendedores
-  $consulta = "SELECT * FROM vendedores";
-  $resultado = mysqli_query($db,$consulta);
+// consulta para obtener todos los vendedores
+  $vendedores = Vendedor::all();
 
   // errores$errores de errores array
   $errores = Propiedad::getErrores();
