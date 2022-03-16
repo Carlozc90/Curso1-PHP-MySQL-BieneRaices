@@ -1,5 +1,11 @@
 <?php
 
+// Env db 
+require __DIR__ . '/vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+//
+
 require 'includes/app.php';
 incluirTemplate('header',$inicio = true);
  ?>
